@@ -1,3 +1,6 @@
+#William Tucker Stone
+#Pong.py
+
 import pygame, sys
 from pygame.locals import *
 # Constants

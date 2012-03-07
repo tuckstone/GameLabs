@@ -1,4 +1,4 @@
-#Objectives#
+#Objectives# 
 In this lab, you will:
 * Practice collision detection and response
 * Practice using Git and GitHub

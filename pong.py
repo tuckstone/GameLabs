@@ -71,9 +71,9 @@ while True:
 		pygame.quit()
 	
 	#Tests for other paddle
-	if pygame.key.get_pressed()[pygame.K_w] and paddle_rect2.top > 0:
+	if ((paddle_rect2.top + paddle_rect2.bottom) / 2) > ((ball_rect.top + ball_rect.bottom)/2) and paddle_rect2.top > 0:
 		paddle_rect2.top -= BALL_SPEED
-	elif pygame.key.get_pressed()[pygame.K_s] and paddle_rect2.bottom < SCREEN_HEIGHT:
+	elif ((paddle_rect2.top + paddle_rect2.bottom) / 2) < ((ball_rect.top + ball_rect.bottom)/2) and paddle_rect2.bottom < SCREEN_HEIGHT:
 		paddle_rect2.top += BALL_SPEED
 		
 	# Update ball position
@@ -107,11 +107,11 @@ while True:
 	# Test if the ball is hit by the paddle; if yes reverse speed and add a point
 	if paddle_rect.colliderect(ball_rect) and ball_speed[0] < 0:
 		ball_speed[0] = -ball_speed[0]
-		ball_speed[0] += 0.5
+		ball_speed[0] += 0.3
 		if ball_speed[1] >0:
-			ball_speed[1] += 0.5
+			ball_speed[1] += 0.3
 		else:
-			ball_speed[1] -= 0.5
+			ball_speed[1] -= 0.3
 		try:
 			sound = pygame.mixer.Sound("fart-3.wav")
 		except pygame.error, message:
@@ -120,11 +120,11 @@ while True:
 		sound.play()
 	if paddle_rect2.colliderect(ball_rect) and ball_speed[0] > 0:
 		ball_speed[0] = -ball_speed[0]
-		ball_speed[0] -= 0.5
+		ball_speed[0] -= 0.3
 		if ball_speed[1] >0:
-			ball_speed[1] += 0.5
+			ball_speed[1] += 0.3
 		else:
-			ball_speed[1] -= 0.5
+			ball_speed[1] -= 0.3
 		try:
 			sound = pygame.mixer.Sound("fart-3.wav")
 		except pygame.error, message:
